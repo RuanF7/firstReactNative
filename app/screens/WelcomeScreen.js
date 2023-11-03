@@ -1,10 +1,8 @@
 import React from 'react';
 import { Image, ImageBackground, StyleSheet, View, Text, Button, TouchableOpacity, SafeAreaView } from 'react-native';
 
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 
 function WelcomeScreen(props) {
@@ -19,34 +17,14 @@ function WelcomeScreen(props) {
             <Image style={styles.logo} source={require("../assets/react-native-logo.png")} />
             <Text style={styles.firstText}>My first React Native App</Text>
           </View>
-          <TouchableOpacity style={styles.loginButton}>
+          <TouchableOpacity 
+            onPress={() => props.navigation.navigate("Home")} style={styles.loginButton}>
             <Text style={styles.loginButtonTitle}>Login</Text>
             <MaterialIcons name="arrow-forward-ios" size={22} color="#fff" />
           </TouchableOpacity>
         </SafeAreaView>
       </ImageBackground>
     
-  );
-}
-
-const Home = () => {
-  return(
-    <View style={styles.container}>
-      <Text>Hello World!</Text>
-    </View>
-  )
-}
-
-const Stack = createNativeStackNavigator();
-
-function App () {
-  return(
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen component={WelcomeScreen} name="Welcome Screen" />
-        <Stack.Screen component={Home} name="Home" />
-      </Stack.Navigator>
-    </NavigationContainer>
   );
 }
 
@@ -70,12 +48,12 @@ const styles = StyleSheet.create({
   },
   loginButton: {
     backgroundColor: "#da4526",
-    padding: 20,
+    padding: 20,   
     width: "95%",
     flexDirection: 'row',
     justifyContent: 'space-between',
     borderRadius: 5,
-    marginTop: 720,
+    marginTop: 620,
 
   },
   logo: {
@@ -85,10 +63,10 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     position: 'absolute',
-    top: 10,
+    top: 1,
     alignItems: "center",
-    padding: 20,
-    paddingRight: 6,
+    padding: 20,    
+    paddingRight: 10,
   },
   firstText: {
     fontSize: 25,
