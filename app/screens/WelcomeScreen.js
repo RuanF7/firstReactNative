@@ -5,7 +5,7 @@ import { Image, ImageBackground, StyleSheet, View, Text, Button, TouchableOpacit
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 
-function WelcomeScreen(props) {
+function WelcomeScreen({navigation}) {
   return (
     
       <ImageBackground
@@ -18,7 +18,7 @@ function WelcomeScreen(props) {
             <Text style={styles.firstText}>My first React Native App</Text>
           </View>
           <TouchableOpacity 
-            onPress={() => props.navigation.navigate("Home")} style={styles.loginButton}>
+            onPress={() => navigation.navigate("SecondScreen")} style={styles.loginButton}>
             <Text style={styles.loginButtonTitle}>Login</Text>
             <MaterialIcons name="arrow-forward-ios" size={22} color="#fff" />
           </TouchableOpacity>
@@ -28,6 +28,22 @@ function WelcomeScreen(props) {
   );
 }
 
+//===============================================//
+
+/*const StackWelcomeScreen = createNativeStackNavigator();
+
+function StackTabWelcomeScreen() {
+  return (
+    <NavigationContainer>
+      <StackWelcomeScreen.Navigator>        
+        <StackWelcomeScreen.Screen component={WelcomeScreen} name="Welcome Screen" />             
+      </StackWelcomeScreen.Navigator>
+    </NavigationContainer> 
+  );
+}
+*/
+
+//===============================================//
 const styles = StyleSheet.create({
   background: {
     flex: 1,
